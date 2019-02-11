@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { Home, NotFound } from '../../pages'
+import './App.css'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      </div>
-    );
+      <BrowserRouter basename="/">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/notfound" component={NotFound} />
+          <Redirect to="/notfound" />
+        </Switch>
+      </BrowserRouter>
+    )
   }
 }
 
-export default App;
+export default App
