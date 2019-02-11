@@ -1,8 +1,11 @@
 export default {
   wrapper: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#eee',
     width: '100%',
     height: '100%',
-    overflow: 'scroll'
+    overflowY: 'scroll',
+    overflowX: 'hidden',
+    display: 'flex',
+    justifyContent: 'center'
   }
 }
