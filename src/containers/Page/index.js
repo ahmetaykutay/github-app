@@ -3,9 +3,11 @@ import injectSheet from 'react-jss'
 import styles from './styles.js'
 
 const Page = props => {
-  const { classes, children } = props
+  const { classes, children, className } = props
+  const wrapperClass = [classes.wrapper, className].join(' ')
+
   return (
-    <div className={classes.wrapper}>
+    <div className={wrapperClass}>
       {children}
     </div>
   )

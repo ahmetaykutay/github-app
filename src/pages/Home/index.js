@@ -7,8 +7,8 @@ export class Home extends Component {
   render() {
     const { classes } = this.props
     return (
-      <Page>
-        <p>home</p>
+      <Page className={classes.home}>
+        <div className={classes.gitIcon}><i className="fab fa-github" /></div>
       </Page>
     )
   }

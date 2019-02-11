@@ -39,7 +39,7 @@ function ButtonAppBar(props) {
             position="fixed"
           >
             <a className={classes.linkActive} href="https://github.com/" target="_blank">
-              <i className="fab fa-github" />{' '}
+              <i className="fab fa-github" />
             </a>
           </IconButton>
           <Button className={classes.link} color="inherit">
