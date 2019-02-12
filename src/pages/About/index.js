@@ -3,7 +3,7 @@ import { Page } from '../../containers'
 
 const About = () => (
   <Page>
-    <p>this is the about page</p>
+    <p>This is a small demo app </p>
   </Page>
 )
 
