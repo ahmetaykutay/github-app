@@ -1,7 +1,6 @@
 // @flow
 
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
@@ -30,7 +29,6 @@ const styles = {
 
 type PropsType = {
   classes: Classes<typeof styles>,
-  changeSearchby: Function,
   setSearchType: Function
 }
 
@@ -92,10 +90,6 @@ const ButtonAppBar = (props: PropsType) => {
       </AppBar>
     </div>
   )
-}
-
-ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({

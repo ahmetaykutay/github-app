@@ -3,7 +3,7 @@
 import * as React from 'react'
 import injectSheet from 'react-jss'
 import type { Classes } from 'react-jss'
-import styles from './styles.js'
+import styles from './styles'
 
 type PropsType = {
   classes: Classes<typeof styles>,

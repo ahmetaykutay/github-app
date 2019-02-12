@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 import injectSheet from 'react-jss'
 import type { Classes } from 'react-jss'
 import type { Node } from 'react'
-import styles from './styles.js'
+import styles from './styles'
 
 type PropsType = {
   classes: Classes<typeof styles>,

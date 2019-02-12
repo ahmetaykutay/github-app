@@ -39,6 +39,8 @@ module.exports = {
     'arrow-parens': 0
   },
   globals: {
-    window: true
+    window: true,
+    fetch: true,
+    document: true
   }
 }

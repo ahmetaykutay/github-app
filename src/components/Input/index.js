@@ -17,7 +17,14 @@ const Input = (props: PropsType) => {
   const {
     classes, style, onChange, placeholder
   } = props
-  return <input placeholder={placeholder} style={style} className={classes.input} onChange={e => onChange(e.currentTarget.value)} />
+  return (
+    <input
+      placeholder={placeholder}
+      style={style}
+      className={classes.input}
+      onChange={e => onChange(e.currentTarget.value)}
+    />
+  )
 }
 
 Input.defaultProps = {
