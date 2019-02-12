@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
@@ -5,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+import type { Classes } from 'react-jss'
 
 const styles = {
   root: {
@@ -26,8 +29,13 @@ const styles = {
   }
 }
 
-function ButtonAppBar(props) {
+type PropsType = {
+  classes: Classes<typeof styles>,
+}
+
+const ButtonAppBar = (props: PropTypes) => {
   const { classes } = props
+
   return (
     <div className={classes.root}>
       <AppBar style={{ backgroundColor: '#363636' }} position="static">
