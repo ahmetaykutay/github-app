@@ -65,7 +65,7 @@ const ButtonAppBar = (props: PropsType) => {
           <div className={classes.menu}>
             {
               routes.map(r => (
-                <Typography onClick={() => history.push(r.path)} className={classes.menuItem} variant="h6" color="inherit">
+                <Typography key={r.path} onClick={() => history.push(r.path)} className={classes.menuItem} variant="h6" color="inherit">
                   {r.name}
                 </Typography>
               ))
