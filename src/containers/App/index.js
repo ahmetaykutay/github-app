@@ -2,7 +2,7 @@ import React from 'react'
 import {
   BrowserRouter, Route, Switch, Redirect
 } from 'react-router-dom'
-import { Home, NotFound } from '../../pages'
+import { Home, NotFound, About } from '../../pages'
 import Navbar from '../Navbar'
 import './App.css'
 
@@ -12,6 +12,7 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/About" component={About} />
         <Route path="/notfound" component={NotFound} />
         <Redirect to="/notfound" />
       </Switch>
