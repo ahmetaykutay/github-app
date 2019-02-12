@@ -1,1 +1,5 @@
-export { default as github } from './github'
+import * as github from './github'
+
+export default {
+  github
+}
