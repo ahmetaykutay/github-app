@@ -13,12 +13,27 @@ import { Input, Button } from '../../components'
 import actions from '../../store/actions'
 import styles from './styles.js'
 
-type PropsType = {
-  classes: Classes<typeof styles>
+type DataType = {
+  id: string | number,
+  name: string,
+  description: string
 }
 
-export class Home extends Component<PropsType> {
-  constructor(props) {
+type PropsType = {
+  classes: Classes<typeof styles>,
+  searchType: Object,
+  repositories: Array<DataType>,
+  isInProgress: boolean,
+  fetchOrgs: Function,
+  fetchRepos: Function
+}
+
+type StateType = {
+  searchText: string
+}
+
+export class Home extends Component<PropsType, StateType> {
+  constructor(props: PropsType) {
     super(props)
     this.state = {
       searchText: ''
@@ -45,7 +60,7 @@ export class Home extends Component<PropsType> {
     )
   }
 
-  renderCard = data => {
+  renderCard = (data: DataType) => {
     const { classes } = this.props
     return (
       <Card key={data.id} className={classes.card}>
@@ -99,7 +114,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchRepos: username => dispatch(actions.github.fetchRepos(username)),
-  fetchOrgs: username => dispatch(actions.github.fetchOrgs(username)),
+  fetchOrgs: username => dispatch(actions.github.fetchOrgs(username))
 })
 
 export default injectSheet(styles)(

@@ -30,12 +30,23 @@ const styles = {
 
 type PropsType = {
   classes: Classes<typeof styles>,
-  changeSearchby: Function
+  changeSearchby: Function,
+  setSearchType: Function
 }
 
 const searchTypes = [
-  { label: 'Search Repos', value: 'repos', title: 'Let\'s search some Github repos', functionName: 'getRepos' },
-  { label: 'Search Organizations', value: 'orgs', title: 'Let\'s get some Github orgs', functionName: 'getUserData' }
+  {
+    label: 'Search Repos',
+    value: 'repos',
+    title: "Let's search some Github repos",
+    functionName: 'getRepos'
+  },
+  {
+    label: 'Search Organizations',
+    value: 'orgs',
+    title: "Let's get some Github orgs",
+    functionName: 'getUserData'
+  }
 ]
 
 const ButtonAppBar = (props: PropsType) => {

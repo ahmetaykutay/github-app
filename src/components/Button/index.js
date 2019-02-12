@@ -4,12 +4,14 @@ import React from 'react'
 import Button from '@material-ui/core/Button'
 import injectSheet from 'react-jss'
 import styles from './styles.js'
+import type { Classes } from 'react-jss'
+import type { Node } from 'react'
 
 type PropsType = {
   classes: Classes<typeof styles>,
   style?: Object,
   title?: string,
-  children?: string | number | React.Node,
+  children?: string | number | Node,
   onClick: Function,
   disabled?: boolean
 }
