@@ -9,7 +9,7 @@ function* fetchRepos(action) {
     const res = yield getRepos(username)
     yield put(actions.github.fetchReposSuccess(res))
   } catch (error) {
-    yield put(actions.github.fetchReposFail(error))
+    yield put(actions.github.fetchReposFail(error.response.data.message))
   }
 }
 
