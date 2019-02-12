@@ -7,29 +7,19 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+import Typography from '@material-ui/core/Typography'
 import type { Classes } from 'react-jss'
+import { withRouter } from 'react-router-dom'
+import type { RouterHistory } from 'react-router-dom'
 import { actions } from '../../store'
+import styles from './styles'
+import routes from '../../routes'
 
-const styles = {
-  grow: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 'auto',
-    fontSize: '28px'
-  },
-  link: {
-    color: '#bbb'
-  },
-  linkActive: {
-    color: '#fff'
-  }
-}
 
 type PropsType = {
   classes: Classes<typeof styles>,
-  setSearchType: Function
+  setSearchType: Function,
+  history: RouterHistory
 }
 
 const searchTypes = [
@@ -48,7 +38,9 @@ const searchTypes = [
 ]
 
 const ButtonAppBar = (props: PropsType) => {
-  const { classes, setSearchType } = props
+  const {
+    classes, setSearchType, history
+  } = props
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
@@ -70,6 +62,15 @@ const ButtonAppBar = (props: PropsType) => {
               <i className="fab fa-github" />
             </a>
           </IconButton>
+          <div className={classes.menu}>
+            {
+              routes.map(r => (
+                <Typography onClick={() => history.push(r.path)} className={classes.menuItem} variant="h6" color="inherit">
+                  {r.name}
+                </Typography>
+              ))
+            }
+          </div>
           {searchTypes.map((m, i) => {
             const className = activeIndex === i ? classes.linkActive : classes.link
             return (
@@ -100,5 +101,5 @@ export default withStyles(styles)(
   connect(
     null,
     mapDispatchToProps
-  )(ButtonAppBar)
+  )(withRouter(ButtonAppBar))
 )
