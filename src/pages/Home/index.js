@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography'
 import { connect } from 'react-redux'
 import type { Classes } from 'react-jss'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import { Page } from '../../containers'
 import { Input, Button } from '../../components'
 import actions from '../../store/actions'
@@ -42,8 +44,22 @@ export class Home extends Component<PropsType> {
     )
   }
 
+  renderCard = data => {
+    const { classes } = this.props
+    return (
+      <Card key={data.id} className={classes.card}>
+        <CardContent>
+          <Typography variant="h5">{data.name}</Typography>
+          <Typography style={{ color: '#666' }} variant="body2">
+            {data.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    )
+  }
+
   render() {
-    const { classes, isInProgress } = this.props
+    const { classes, isInProgress, repositories } = this.props
 
     return (
       <Page className={classes.home}>
@@ -66,6 +82,9 @@ export class Home extends Component<PropsType> {
         <Button disabled={isInProgress} onClick={this.search}>
           {isInProgress ? this.renderSpinner() : "Dox'em"}
         </Button>
+        <div className={classes.cardContainer}>
+          {repositories.map(this.renderCard)}
+        </div>
       </Page>
     )
   }

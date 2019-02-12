@@ -10,9 +10,6 @@ import IconButton from '@material-ui/core/IconButton'
 import type { Classes } from 'react-jss'
 
 const styles = {
-  root: {
-    flexGrow: 1
-  },
   grow: {
     flexGrow: 1
   },
@@ -37,7 +34,7 @@ const ButtonAppBar = (props: PropTypes) => {
   const { classes } = props
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar style={{ backgroundColor: '#363636' }} position="static">
         <Toolbar>
           <IconButton

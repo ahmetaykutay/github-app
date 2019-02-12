@@ -8,5 +8,12 @@ export default {
   },
   spinner: {
     color: '#fff'
+  },
+  card: {
+    minWidth: '340px',
+    marginBottom: '20px'
+  },
+  cardContainer: {
+    margin: '50px 0'
   }
 }
