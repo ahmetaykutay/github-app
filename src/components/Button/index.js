@@ -10,11 +10,12 @@ type PropsType = {
   style?: Object,
   title?: string,
   children?: string | number | React.Node,
-  onClick: Function
+  onClick: Function,
+  disabled?: boolean
 }
 
 const CustomButton = (props: PropsType) => {
-  const { classes, title, children, style, onClick } = props
+  const { classes, title, children, style, onClick, disabled } = props
   const content = title ? title : children
 
   return (
@@ -24,7 +25,7 @@ const CustomButton = (props: PropsType) => {
       disableRipple
       className={classes.button}
       style={style}
-      onClick={onClick}
+      onClick={disabled ? () => {} : onClick}
     >
       {content}
     </Button>
@@ -34,7 +35,8 @@ const CustomButton = (props: PropsType) => {
 CustomButton.defaultProps = {
   title: null,
   style: null,
-  children: null
+  children: null,
+  disabled: false
 }
 
 export default injectSheet(styles)(CustomButton)

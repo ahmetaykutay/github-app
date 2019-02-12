@@ -5,5 +5,8 @@ export default {
   gitIcon: {
     fontSize: 100,
     marginBottom: '30px'
+  },
+  spinner: {
+    color: '#fff'
   }
 }

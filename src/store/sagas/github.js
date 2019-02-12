@@ -8,9 +8,8 @@ function* fetchRepos(action) {
   try {
     const res = yield getRepos(username)
     yield put(actions.github.fetchReposSuccess(res))
-  } catch (err) {
-    // TODO: handle error here
-    console.log(err)
+  } catch (error) {
+    yield put(actions.github.fetchReposFail(error))
   }
 }
 

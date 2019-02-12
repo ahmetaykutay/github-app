@@ -5,6 +5,7 @@ import injectSheet from 'react-jss'
 import Typography from '@material-ui/core/Typography'
 import { connect } from 'react-redux'
 import type { Classes } from 'react-jss'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { Page } from '../../containers'
 import { Input, Button } from '../../components'
 import actions from '../../store/actions'
@@ -28,8 +29,21 @@ export class Home extends Component<PropsType> {
     fetchRepos(searchText)
   }
 
-  render() {
+  renderSpinner() {
     const { classes } = this.props
+    return (
+      <CircularProgress
+        variant="indeterminate"
+        disableShrink
+        className={classes.spinner}
+        size={24}
+        thickness={4}
+      />
+    )
+  }
+
+  render() {
+    const { classes, isInProgress } = this.props
 
     return (
       <Page className={classes.home}>
@@ -49,14 +63,17 @@ export class Home extends Component<PropsType> {
           onChange={searchText => this.setState({ searchText })}
           style={{ maxWidth: '400px', marginBottom: '30px' }}
         />
-        <Button onClick={this.search} title="Dox'em" />
+        <Button disabled={isInProgress} onClick={this.search}>
+          {isInProgress ? this.renderSpinner() : "Dox'em"}
+        </Button>
       </Page>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  repositories: state.github.repositories
+  repositories: state.github.repositories,
+  isInProgress: state.github.isInProgress
 })
 
 const mapDispatchToProps = dispatch => ({
