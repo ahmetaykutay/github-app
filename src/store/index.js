@@ -15,4 +15,5 @@ const store = createStore(rootReducer, composeEnhancers(...enhancers))
 
 sagaMiddleware.run(rootSaga)
 
+export { default as actions } from './actions'
 export default store

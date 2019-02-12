@@ -26,9 +26,10 @@ export class Home extends Component<PropsType> {
   }
 
   search = () => {
-    const { fetchRepos } = this.props
+    const { fetchRepos, searchType, fetchOrgs } = this.props
     const { searchText } = this.state
-    fetchRepos(searchText)
+    if (searchType.value === 'repos') fetchRepos(searchText)
+    else fetchOrgs(searchText)
   }
 
   renderSpinner() {
@@ -59,7 +60,7 @@ export class Home extends Component<PropsType> {
   }
 
   render() {
-    const { classes, isInProgress, repositories } = this.props
+    const { classes, isInProgress, repositories, searchType } = this.props
 
     return (
       <Page className={classes.home}>
@@ -67,7 +68,7 @@ export class Home extends Component<PropsType> {
           <i className="fab fa-github" />
         </div>
         <Typography component="h1" variant="h6" gutterBottom>
-          Let's search some Github repos
+          {searchType.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
           Enter a username and we'll dox them right here in front of everyone.
@@ -92,11 +93,13 @@ export class Home extends Component<PropsType> {
 
 const mapStateToProps = state => ({
   repositories: state.github.repositories,
-  isInProgress: state.github.isInProgress
+  isInProgress: state.github.isInProgress,
+  searchType: state.github.searchType
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchRepos: username => dispatch(actions.github.fetchRepos(username))
+  fetchRepos: username => dispatch(actions.github.fetchRepos(username)),
+  fetchOrgs: username => dispatch(actions.github.fetchOrgs(username)),
 })
 
 export default injectSheet(styles)(
