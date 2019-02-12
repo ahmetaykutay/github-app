@@ -38,13 +38,13 @@ const searchTypes = [
   {
     label: 'Search Repos',
     value: 'repos',
-    title: "Let's search some Github repos",
+    title: 'Let\'s search some Github repos',
     functionName: 'getRepos'
   },
   {
     label: 'Search Organizations',
     value: 'orgs',
-    title: "Let's get some Github orgs",
+    title: 'Let\'s get some Github orgs',
     functionName: 'getUserData'
   }
 ]
@@ -73,8 +73,7 @@ const ButtonAppBar = (props: PropsType) => {
             </a>
           </IconButton>
           {searchTypes.map((m, i) => {
-            const className =
-              activeIndex === i ? classes.linkActive : classes.link
+            const className = activeIndex === i ? classes.linkActive : classes.link
             return (
               <Button
                 onClick={() => {

@@ -3,9 +3,9 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import injectSheet from 'react-jss'
-import styles from './styles.js'
 import type { Classes } from 'react-jss'
 import type { Node } from 'react'
+import styles from './styles.js'
 
 type PropsType = {
   classes: Classes<typeof styles>,
@@ -17,8 +17,10 @@ type PropsType = {
 }
 
 const CustomButton = (props: PropsType) => {
-  const { classes, title, children, style, onClick, disabled } = props
-  const content = title ? title : children
+  const {
+    classes, title, children, style, onClick, disabled
+  } = props
+  const content = title || children
 
   return (
     <Button

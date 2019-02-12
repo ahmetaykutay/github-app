@@ -4,7 +4,7 @@ import {
   FETCH_REPOSITORIES_SUCCESS,
   FETCH_REPOSITORIES_FAIL,
   SET_SEARCH_TYPE
-} from '../actions/actionTypes'
+} from './actionTypes'
 
 export const fetchRepos = payload => ({ type: FETCH_REPOSITORIES, payload })
 export const fetchOrgs = payload => ({ type: FETCH_ORGANIZATIONS, payload })

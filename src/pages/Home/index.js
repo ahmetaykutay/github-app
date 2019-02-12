@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent'
 import { Page } from '../../containers'
 import { Input, Button } from '../../components'
 import actions from '../../store/actions'
-import styles from './styles.js'
+import styles from './styles'
 
 type DataType = {
   id: string | number,
@@ -75,7 +75,9 @@ export class Home extends Component<PropsType, StateType> {
   }
 
   render() {
-    const { classes, isInProgress, repositories, searchType } = this.props
+    const {
+      classes, isInProgress, repositories, searchType
+    } = this.props
 
     return (
       <Page className={classes.home}>
@@ -86,7 +88,7 @@ export class Home extends Component<PropsType, StateType> {
           {searchType.title}
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Enter a username and we'll dox them right here in front of everyone.
+          {'Enter a username and we\'ll dox them right here in front of everyone.'}
         </Typography>
         <Typography variant="h6" gutterBottom>
           Username
@@ -96,7 +98,7 @@ export class Home extends Component<PropsType, StateType> {
           style={{ maxWidth: '400px', marginBottom: '30px' }}
         />
         <Button disabled={isInProgress} onClick={this.search}>
-          {isInProgress ? this.renderSpinner() : "Dox'em"}
+          {isInProgress ? this.renderSpinner() : 'Dox\'em'}
         </Button>
         <div className={classes.cardContainer}>
           {repositories.map(this.renderCard)}
