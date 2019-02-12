@@ -11,7 +11,8 @@ export default {
   },
   card: {
     minWidth: '340px',
-    marginBottom: '20px'
+    maxWidth: '70%;',
+    margin: 'auto auto 20px auto'
   },
   cardContainer: {
     margin: '50px 0'
