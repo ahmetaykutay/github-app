@@ -9,16 +9,18 @@ import styles from './styles'
 type PropsType = {
   classes: Classes<typeof styles>,
   style?: Object,
-  onChange: Function
+  onChange: Function,
+  placeholder?: string
 }
 
 const Input = (props: PropsType) => {
-  const { classes, style, onChange } = props
-  return <input style={style} className={classes.input} onChange={e => onChange(e.currentTarget.value)} />
+  const { classes, style, onChange, placeholder } = props
+  return <input placeholder={placeholder} style={style} className={classes.input} onChange={e => onChange(e.currentTarget.value)} />
 }
 
 Input.defaultProps = {
-  style: null
+  style: null,
+  placeholder: ''
 }
 
 export default injectSheet(styles)(Input)
