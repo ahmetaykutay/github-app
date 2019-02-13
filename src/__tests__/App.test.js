@@ -1,9 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from '../containers/App'
+import { shallow } from 'enzyme'
+import { Provider } from 'react-redux'
+import { App } from '../containers'
+import { Navbar } from '../containers'
+import store from '../store'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-  ReactDOM.unmountComponentAtNode(div)
+describe('app renders correctly', () => {
+  it('renders navbar', () => {
+    const wrapped = shallow(<App />)
+
+    expect(wrapped.find(Navbar).length).toEqual(1)
+  })
 })
