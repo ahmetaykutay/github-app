@@ -29,22 +29,26 @@ type PropsType = {
 }
 
 type StateType = {
-  searchText: string
+  searchText: string,
+  searchedBefore: boolean
 }
 
 export class Home extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props)
     this.state = {
-      searchText: ''
+      searchText: '',
+      searchedBefore: false
     }
   }
 
   search = () => {
     const { fetchRepos, searchType, fetchOrgs } = this.props
-    const { searchText } = this.state
+    const { searchText, searchedBefore } = this.state
     if (searchType.value === 'repos') fetchRepos(searchText)
     else fetchOrgs(searchText)
+
+    if (!searchedBefore) this.setState({ searchedBefore: true })
   }
 
   renderSpinner() {
@@ -78,6 +82,7 @@ export class Home extends Component<PropsType, StateType> {
     const {
       classes, isInProgress, repositories, searchType
     } = this.props
+    const { searchedBefore } = this.state
 
     return (
       <Page className={classes.home}>
@@ -101,7 +106,9 @@ export class Home extends Component<PropsType, StateType> {
           {isInProgress ? this.renderSpinner() : 'Dox\'em'}
         </Button>
         <div className={classes.cardContainer}>
-          {repositories.map(this.renderCard)}
+          {repositories.length === 0 && searchedBefore
+            ? <p>no data found</p>
+            : repositories.map(this.renderCard)}
         </div>
       </Page>
     )

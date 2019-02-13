@@ -1,6 +1,7 @@
 export default {
   home: {
-    paddingTop: '10%'
+    paddingTop: '100px',
+    alignItems: 'center'
   },
   gitIcon: {
     fontSize: 100,

@@ -1,10 +1,22 @@
+// @flow
+
 import React from 'react'
+import injectSheet from 'react-jss'
+import type { Classes } from 'react-jss'
 import { Page } from '../../containers'
+import styles from './styles'
 
-const About = () => (
-  <Page>
-    <p>This is a small demo app </p>
-  </Page>
-)
+type PropsType = {
+  classes: Classes<typeof styles>,
+}
 
-export default About
+const About = (props: PropsType) => {
+  const { classes } = props
+  return (
+    <Page className={classes.page}>
+      <p>This is a small demo app </p>
+    </Page>
+  )
+}
+
+export default injectSheet(styles)(About)
