@@ -1,5 +1,7 @@
 # Github App
 
+https://aykut-github-app.herokuapp.com/
+
 ### To install:
 
 ```yarn```
@@ -10,8 +12,8 @@ or
 
 ### To start:
 
-```yarn start```
+```yarn dev```
 
 or
 
-```npm install```
+```npm run dev```
